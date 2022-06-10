@@ -9,6 +9,7 @@
   "author": "garbagemza",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.18.1"
   },
   "devDependencies": {
     "jest": "^28.1.0"
