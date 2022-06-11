@@ -32,16 +32,18 @@ describe('express.wrapper', () => {
     })
 
     test('mockCall_callAfterInitialization_shouldValidate', () => {
-        const req = {}
+        const logger = {error: console.log, info: console.log, warn: console.log}
+        const req = {logger}
         const res = {
             status: () => {},
-            send: () => {}
+            send: () => {},
+            json: () => {}
         }
         const done = () => {}
         const app = {
             use: (fn) => {
                 if (typeof fn === 'function')
-                    fn(req, res, done, {error: () => {}})
+                    fn(req, res, done)
             },
             get: () => undefined
         }
