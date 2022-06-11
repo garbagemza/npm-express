@@ -3,6 +3,7 @@
 //
 // MIT License
 // Copyright (c) 2022 garbagemza
+
 const MetaBuilder = require('../../lib/metaBuilder')
 
 describe('express.metaBuilder', () => {
