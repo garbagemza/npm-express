@@ -1,10 +1,10 @@
 {
-  "name": "npm-sqlite",
+  "name": "npm-express",
   "version": "0.0.4",
-  "description": "sqlite wrapper",
+  "description": "express wrapper",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage --debug"
+    "test": "jest --coverage"
   },
   "author": "garbagemza",
   "license": "MIT",
