@@ -4,7 +4,7 @@
   "description": "sqlite wrapper",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage --debug"
   },
   "author": "garbagemza",
   "license": "MIT",

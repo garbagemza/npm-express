@@ -189,4 +189,37 @@ describe('express.builder', () => {
             expect(error.message).toBe(`Invalid param validator type. Expected function.`)
         }
     })
+
+    test('set_withLogger_shouldValidate', () => {
+        const builder = new Builder()
+        builder.withLogger({})
+    })
+
+    test('constructor_validateSomething_shouldHandleOk', () => {
+        const req = {
+            body: {data: 'some data'},
+            logger: {error: () => {}, info: () => {}, warn: () => {}}
+        }
+        const validator = (req, res, done) => (req, res, done)
+        const controller = (req, res, done) => undefined
+        const bodyValidator = require('../../lib/utilities/bodyValidator')
+        const paramValidator = require('../../lib/utilities/paramValidator')
+        const handler = require('../../lib/utilities/handler')
+
+        const app = {
+            post: (endpoint, fn) => fn(req, {}, () => {})
+        }
+        const builder = new Builder()
+        const object = builder.withApp(app)
+            .withLogger(req.logger)
+            .withBodyValidator(bodyValidator)
+            .withParamValidator(paramValidator)
+            .withHandler(handler)
+            .post('/ticket')
+            .validateBody(validator)
+            .controller(controller)
+            .build()
+        expect(object).toStrictEqual({})
+    })
+
 })
