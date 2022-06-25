@@ -190,11 +190,6 @@ describe('express.builder', () => {
         }
     })
 
-    test('set_withLogger_shouldValidate', () => {
-        const builder = new Builder()
-        builder.withLogger({})
-    })
-
     test('constructor_validateSomething_shouldHandleOk', () => {
         const req = {
             body: {data: 'some data'},
@@ -211,7 +206,6 @@ describe('express.builder', () => {
         }
         const builder = new Builder()
         const object = builder.withApp(app)
-            .withLogger(req.logger)
             .withBodyValidator(bodyValidator)
             .withParamValidator(paramValidator)
             .withHandler(handler)
