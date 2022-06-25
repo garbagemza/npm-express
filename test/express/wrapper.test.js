@@ -32,8 +32,8 @@ describe('express.wrapper', () => {
     })
 
     test('mockCall_callAfterInitialization_shouldValidate', () => {
-        const logger = {error: console.log, info: console.log, warn: console.log}
-        const req = {logger}
+        const logger = {}
+        const req = {}
         const res = {
             status: () => {},
             send: () => {},
@@ -52,7 +52,7 @@ describe('express.wrapper', () => {
 
         wrapper(express, {
             verbose: {
-                info: () => {}
+                error: console.log, info: console.log, warn: console.log
             },
             beforeInitialization: () => {},
             afterInitialization: () => {},
